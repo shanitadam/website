@@ -9,6 +9,7 @@ var gulp        = require('gulp'),
     livereload  = require('gulp-livereload'), // Livereload plugin needed: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
     tinylr      = require('tiny-lr'),
     express     = require('express'),
+    deploy      = require('gulp-gh-pages'),
     app         = express(),
     marked      = require('marked'), // For :markdown filter in jade
     path        = require('path'),
@@ -157,3 +158,8 @@ gulp.task('clean', function (callback) {
     callback
   )
 })
+
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
