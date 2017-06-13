@@ -88,9 +88,9 @@ gulp.task('watch', function () {
     if (err) {
       return console.log(err);
     }
-    gulp.watch('src/scss/*.scss',['scss']);
-    gulp.watch('src/js/scripts/*.js',['js']);
-    gulp.watch('src/templates/*.swig',['templates']);
+    gulp.watch('src/scss/**/*.scss',['scss']);
+    gulp.watch('src/js/**/*.js',['js']);
+    gulp.watch('src/templates/**/*.swig',['templates']);
     
   });
 });
@@ -133,6 +133,10 @@ gulp.task('useref', function(){
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('github', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
 
 /* main tasks */
 
@@ -150,6 +154,10 @@ gulp.task('build', function (callback) {
     'useref',
     callback
   )
+
+  gulp.src('CNAME')
+    .pipe( gulp.dest('./dist/'));
+ 
 })
 
 gulp.task('clean', function (callback) {
@@ -159,7 +167,10 @@ gulp.task('clean', function (callback) {
   )
 })
 
-gulp.task('deploy', function () {
-  return gulp.src("./dist/**/*")
-    .pipe(deploy())
-});
+gulp.task('deploy', function (callback) {
+  runSequence(
+    'build',
+    ['github'],
+    callback
+  )
+})

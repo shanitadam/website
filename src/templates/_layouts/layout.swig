@@ -21,7 +21,7 @@
 <body>
 
 	<header>
-		<h2><a href="#">Reachout Rick</a></h2>
+		<h2><a href="#">Shanit Adam</a></h2>
 		<nav>
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Products</a></li>
@@ -40,12 +40,11 @@
 			<li><a href="#"><i class="fa fa-pinterest-square"></i></a></li>
 			<li><a href="#"><i class="fa fa-github-square""></i></a></li>
 		</ul>
-		<p>Made by <a href="http://tutorialzine.com/" target="_blank">tutorialzine</a>. images courtesy to <a href="http://unsplash.com/" target="_blank">unsplash</a>.</p>
-		<p>No attribution required. you can remove this footer.</p>
+		<p>Shanit Adam 2017 (c).</p>
 	</footer>
 
 	<!-- build:js js/main.js -->
-	<script type="text/javascript" src="js/1.js"></script> 
+	<script type="text/javascript" src="js/email_handler.js"></script> 
 	<script type="text/javascript" src="js/2.js"></script> 
 	<!-- endbuild -->
 
